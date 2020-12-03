@@ -111,6 +111,8 @@ int sched_getType(void* obj)
 	if (schedPtr == NULL) {//에러 발생시. 
 		printf("[ERROR] failed to get the schedule Info!\n");
 	}
+	
+	return schedPtr->type;//타입 반환. 
 }
 
 
@@ -122,11 +124,19 @@ char* sched_getPlace(void* obj)
 	if (schedPtr == NULL) {//에러 발생시. 
 		printf("[ERROR] failed to get the schedule Info!\n");
 	}
+	
+	return schedPtr->place; //장소 반환. 
+	
 }
 
 //convert the name of the type into the enum(integer) value
 int sched_convertType(char* typeName)
 {
-
+	schedInfo_t* schedPtr = (schedInfo_t*)typeName;
+	if (schedPtr == NULL) {//에러 발생시. 
+		printf("[ERROR] failed to convert the schedule Info!\n");
+	}
+	
+	return schedPtr->type;//변환된 타입 반환. 
 }
 
