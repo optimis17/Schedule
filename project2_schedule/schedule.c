@@ -75,18 +75,15 @@ void sched_print(void* obj)
 
 
 
-
-
-
-
-
 //generating a structure of scheduling information
 void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 {
 	schedInfo_t* schedPtr;
 	
 	//error handler
-
+	if (schedPtr == NULL) {//에러 발생시. 
+		printf("[ERROR] failed to generate the schedule Info!\n");
+	}
 	//allocate memory and set the member variables
 	
 	
@@ -98,14 +95,22 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 //get month information from the scheduler info structure
 float sched_getMonth(void* obj)
 {
-	
+	schedInfo_t* schedPtr = (schedInfo_t*)obj;
+	if (schedPtr == NULL) {//에러 발생시. 
+		printf("[ERROR] failed to get the schedule Info!\n");
+	}	
+
+	return schedPtr->month;//월 반환  
 }
 
 
 //get type information from the scheduler info structure
 int sched_getType(void* obj)
 {
-	
+	schedInfo_t* schedPtr = (schedInfo_t*)obj;
+	if (schedPtr == NULL) {//에러 발생시. 
+		printf("[ERROR] failed to get the schedule Info!\n");
+	}
 }
 
 
@@ -113,12 +118,15 @@ int sched_getType(void* obj)
 //get place string information from the scheduler info structure
 char* sched_getPlace(void* obj)
 {
-
+	schedInfo_t* schedPtr = (schedInfo_t*)obj;
+	if (schedPtr == NULL) {//에러 발생시. 
+		printf("[ERROR] failed to get the schedule Info!\n");
+	}
 }
 
 //convert the name of the type into the enum(integer) value
 int sched_convertType(char* typeName)
 {
-	
+
 }
 
