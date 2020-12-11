@@ -66,7 +66,7 @@ void sched_print(void* obj)
 	}
 	
 	printf("Schedule Name : %s (%s)\n", schedPtr->name, type_string[schedPtr->type]);
-	printf("When : %s. %i\n", month_string[schedPtr->month], schedPtr->day);
+	printf("When : %s %i\n", month_string[schedPtr->month], schedPtr->day);
 	printf("Where : %s\n", schedPtr->place);
 	
 	return;
@@ -87,7 +87,7 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 	//allocate memory and set the member variables
 	
 	
-	return (void*)schedPtr;
+	//return (void*)schedPtr;
 }
 
 
@@ -99,7 +99,7 @@ float sched_getMonth(void* obj)
 	if (schedPtr == NULL) {//에러 발생시. 
 		printf("[ERROR] failed to get the schedule Info!\n");
 	}	
-
+	
 	return schedPtr->month;//월 반환  
 }
 
@@ -112,7 +112,7 @@ int sched_getType(void* obj)
 		printf("[ERROR] failed to get the schedule Info!\n");
 	}
 	
-	return schedPtr->type;//타입 반환. 
+	return (schedPtr->type);//타입 반환. 
 }
 
 
@@ -125,7 +125,7 @@ char* sched_getPlace(void* obj)
 		printf("[ERROR] failed to get the schedule Info!\n");
 	}
 	
-	return schedPtr->place; //장소 반환. 
+	return (schedPtr->place); //장소 반환. 
 	
 }
 
